@@ -6,7 +6,7 @@ class ArchivoHelper{
     public static function crear_directorio($sub_directorios){
         array_push($sub_directorios, date("Y"), date("m"));
 
-        $dictorio_base = '/import/sac';
+        $dictorio_base = '/import/sac_cafabo';
         $dir = rtrim($dictorio_base, DIRECTORY_SEPARATOR);
 
         foreach ($sub_directorios as $carpeta) {
