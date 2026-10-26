@@ -1,0 +1,19 @@
+@import url("sac/_home.css");
+@import url("sac/_variables.css");
+@import url("sac/_colors.css");
+/* @import url("sac/_spinner.css"); */
+@import url("sac/_tables.css");
+/* Puedes mantener comentados los que aún no hayas creado */
+/* @import url("sac/_auth.css"); */
+@import url("sac/_forms.css");
+@import url("sac/_choices.css");
+@import url("sac/_buttons.css");
+/* @import url("sac/_autocomplete.css"); */
+/* @import url("sac/_tables.css"); */
+@import url("sac/_datatables.css");
+@import url("sac/_modals.css");
+@import url("sac/_perfil.css");
+/* @import url("sac/_stepper.css"); */
+@import url("sac/_components.css");
+@import url("sac/_topbar.css");
+/* @import url("sac/_swiper-custom.css"); */

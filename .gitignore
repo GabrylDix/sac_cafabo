@@ -1,0 +1,25 @@
+.htaccess
+
+# Archivos de configuración sensibles
+app/Config/configuracion.ini
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.swp
+*~
+
+# Uploads de fotos de perfil
+public/uploads/perfiles/
+
+# Conf Vscode
+.vscode/
+
+doc/

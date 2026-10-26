@@ -1,0 +1,208 @@
+/* ============================================
+   Modal Fullscreen Styles
+   ============================================ */
+.modal-xxl {
+    width: 90% !important;
+    max-width: 1546px !important;
+}
+
+/* Superficie neutra del piloto HMI de asientos contables. */
+.sac-asiento-modal .modal-content {
+    border: 1px solid var(--sac-border);
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.sac-asiento-modal .modal-header,
+.sac-asiento-modal .modal-footer {
+    border-color: var(--sac-border);
+}
+
+.sac-asiento-modal .sac-modal-icon {
+    width: 56px;
+    height: 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--sac-action-view-hover-bg);
+    border-radius: 0.5rem;
+    background-color: var(--sac-action-view-bg);
+    color: var(--sac-action-view);
+}
+
+.sac-asiento-modal .sac-section-icon {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text-muted);
+}
+
+.sac-asiento-modal fieldset {
+    padding: 0 !important;
+    border: none !important;
+}
+
+.sac-asiento-modal .sac-readonly-field {
+    min-width: 0;
+    padding: 0.75rem;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+}
+
+.sac-asiento-modal .sac-readonly-label {
+    margin-bottom: 0.25rem;
+    color: var(--sac-text-subtle);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.sac-asiento-modal .sac-readonly-label i {
+    color: var(--sac-text-muted);
+}
+
+.sac-asiento-modal .sac-readonly-value {
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    overflow-wrap: anywhere;
+    border: none;
+    background-color: transparent;
+    color: #334155;
+    font-weight: 500;
+}
+
+.sac-asiento-modal fieldset legend {
+    margin-bottom: 0.5rem;
+    color: var(--sac-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.sac-asiento-modal .sac-detail-totals {
+    padding: 1rem;
+    border: 0;
+    border-top: 1px solid var(--sac-border);
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.sac-asiento-modal .sac-detail-totals .text-value {
+    color: var(--sac-text);
+}
+
+.sac-asiento-modal .sac-readonly-close {
+    border-color: var(--sac-border-strong);
+    background-color: transparent;
+    color: var(--sac-text-muted);
+}
+
+.sac-asiento-modal .sac-readonly-close:hover,
+.sac-asiento-modal .sac-readonly-close:focus-visible {
+    border-color: var(--sac-border-strong);
+    background-color: var(--sac-border);
+    color: var(--sac-text);
+}
+
+.sac-asiento-modal .form-control:disabled,
+.sac-asiento-modal .form-control[readonly] {
+    background-color: var(--sac-surface-muted);
+    border-color: var(--sac-border);
+    color: var(--sac-text-muted);
+}
+
+.modal-fullscreen .modal-body {
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+#movimientosFinancierosModal .modal-fullscreen .modal-header {
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+}
+#subtituloCuenta_movimientos{
+    font-size: 0.85rem;
+}
+
+/* Tarjetas oscuras (Información y Filtros) */
+.card-dark {
+    background-color: #1e1e1e;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+}
+
+/* Tarjeta de Saldo (Degradado Azul/Verde oscuro) */
+.card-saldo-gradient {
+    background: linear-gradient(135deg, #0b1828 0%, #0a2e28 100%);
+    border: 1px solid #133f36;
+    border-radius: 12px;
+}
+
+/* Textos esmeralda (Monto del saldo) */
+.text-emerald {
+    color: #00d26a !important;
+    letter-spacing: -0.5px;
+}
+
+/* Badge esmeralda (+2.4%) */
+.badge-emerald {
+    background-color: rgba(0, 210, 106, 0.15);
+    color: #00d26a;
+    padding: 0.35em 0.65em;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Botones de copiar */
+.btn-copy-dark {
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    color: #888;
+}
+.btn-copy-dark:hover {
+    background-color: #333;
+    color: #fff;
+}
+/* .modal-dark-theme {
+    background-color: #121212 !important;
+    color: #e0e0e0;
+} */
+/* Botón principal de Filtrar (Azul Cobalto) */
+.btn-blue-cobalt {
+    background-color: #1a66d4;
+    color: #fff;
+    border: none;
+    font-weight: 500;
+}
+.btn-blue-cobalt:hover {
+    background-color: #1555b5;
+    color: #fff;
+}
+.bg-gradient-header{
+    background: linear-gradient(135deg, #1a66d4 0%, #0d4290 100%);
+}
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+/* ⚡ ESTILO PARA ALERTAS MODERNAS CON TABLAS */
+.alert-modern-danger {
+    background-color: #fef2f2 !important; /* Rojo muy suave (pastel) */
+    border: 1px solid #fecaca !important; /* Borde rojo claro general */
+    border-left: 5px solid #ef4444 !important; /* Barra lateral roja fuerte */
+    border-radius: 0.5rem;
+}
+
+.alert-modern-danger .alert-title {
+    color: #991b1b !important; /* Texto rojo oscuro para contraste perfecto */
+}
+
+.alert-modern-danger .table-container-errores {
+    background-color: #ffffff; /* Fondo blanco puro para la tabla */
+    border: 1px solid #f87171; /* Borde rojo intermedio para contener la tabla */
+    border-radius: 0.375rem;
+    padding: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+}

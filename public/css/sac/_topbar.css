@@ -1,0 +1,79 @@
+/* Tratamiento visual sobrio del topbar, respetando las dimensiones de Velzon. */
+html:not([data-bs-theme="dark"]) #page-topbar.sac-topbar {
+    background-color: var(--sac-surface);
+    border-bottom: 1px solid var(--sac-border);
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+}
+
+#page-topbar .sac-topbar-actions .header-item > .btn,
+#page-topbar #topnav-hamburger-icon,
+#page-topbar .sac-topbar-user-button {
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .sac-topbar-actions .header-item > .btn:hover,
+html:not([data-bs-theme="dark"]) #page-topbar #topnav-hamburger-icon:hover {
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text);
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .sac-topbar-user-button {
+    padding: 0.375rem 0.625rem;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background-color: transparent;
+    color: var(--sac-text);
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .sac-topbar-user-button:hover,
+html:not([data-bs-theme="dark"]) #page-topbar .sac-topbar-user-button[aria-expanded="true"] {
+    border-color: var(--sac-border-strong);
+    background-color: var(--sac-surface);
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .topbar-head-dropdown .dropdown-menu,
+html:not([data-bs-theme="dark"]) #page-topbar .topbar-user .dropdown-menu {
+    border: 1px solid var(--sac-border);
+    border-radius: 8px;
+    box-shadow: var(--sac-shadow-sm);
+}
+
+#page-topbar .topbar-user .dropdown-menu {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .topbar-user .header-profile-user {
+    box-shadow:
+        0 0 0 2px var(--sac-surface),
+        0 0 0 3px var(--sac-border);
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .user-name-text {
+    color: var(--sac-text);
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .user-name-sub-text {
+    color: var(--sac-text-muted);
+}
+
+html:not([data-bs-theme="dark"]) #page-topbar .dropdown-icon-item:hover {
+    background-color: var(--sac-surface-muted);
+}
+
+#page-topbar .sac-topbar-actions .header-item > .btn:focus-visible,
+#page-topbar .sac-topbar-user-button:focus-visible,
+#page-topbar #topnav-hamburger-icon:focus-visible {
+    outline: 2px solid var(--sac-action-primary);
+    outline-offset: 2px;
+}
+
+.topbar-user {
+    background-color: transparent !important;
+}

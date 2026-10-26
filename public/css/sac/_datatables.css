@@ -1,0 +1,1335 @@
+/*
+ * SAF - Estilos de DataTables
+ * Proyecto: Sistema Administrativo FACAF
+ *
+ * INDICE:
+ * 1. Generales
+ * 2. Control expandir/colapsar
+ * 3. Scroll y sizing
+ * 4. Ordenamiento
+ * 5. Headers y footers
+ * 6. Alineacion y tipos
+ * 7. Estilos de filas (stripe, hover, selected)
+ * 8. Layout y contenedor
+ * 9. Paginacion
+ * 10. Buscador
+ * 11. Processing loader
+ * 12. Dark mode
+ */
+
+/* ============================================
+   1. DATATABLES - Generales
+   ============================================ */
+
+table.dataTable {
+    width: 100%;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
+table.dataTable th,
+table.dataTable td {
+    box-sizing: border-box;
+}
+
+table.dataTable thead th,
+table.dataTable tfoot th {
+    font-weight: bold;
+}
+
+table.dataTable.nowrap th,
+table.dataTable.nowrap td {
+    white-space: nowrap;
+}
+
+table.dataTable.compact thead th,
+table.dataTable.compact thead td,
+table.dataTable.compact tfoot th,
+table.dataTable.compact tfoot td,
+table.dataTable.compact tbody th,
+table.dataTable.compact tbody td {
+    padding: 4px;
+}
+
+table.dataTable td.dataTables_empty,
+table.dataTable th.dataTables_empty {
+    padding: 10px !important;
+}
+
+table.dataTable tfoot:empty {
+    display: none;
+}
+
+/* ============================================
+   2. DATATABLES - Control expandir/colapsar
+   ============================================ */
+
+table.dataTable td.dt-control {
+    text-align: center;
+    cursor: pointer;
+}
+
+table.dataTable td.dt-control:before {
+    display: inline-block;
+    box-sizing: border-box;
+    content: "";
+    border-top: 5px solid transparent;
+    border-left: 10px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid transparent;
+    border-right: 0px solid transparent;
+}
+
+table.dataTable tr.dt-hasChild td.dt-control:before {
+    border-top: 10px solid rgba(0, 0, 0, 0.5);
+    border-left: 5px solid transparent;
+    border-bottom: 0px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+/* ============================================
+   3. DATATABLES - Scroll y sizing
+   ============================================ */
+
+div.dt-scroll {
+    width: 100%;
+}
+
+div.dt-scroll-body thead tr,
+div.dt-scroll-body tfoot tr {
+    height: 0;
+}
+
+div.dt-scroll-body thead tr th,
+div.dt-scroll-body thead tr td,
+div.dt-scroll-body tfoot tr th,
+div.dt-scroll-body tfoot tr td {
+    height: 0 !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    border-top-width: 0px !important;
+    border-bottom-width: 0px !important;
+}
+
+div.dt-scroll-body thead tr th div.dt-scroll-sizing,
+div.dt-scroll-body thead tr td div.dt-scroll-sizing,
+div.dt-scroll-body tfoot tr th div.dt-scroll-sizing,
+div.dt-scroll-body tfoot tr td div.dt-scroll-sizing {
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+div.dt-scroll-body > table.dataTable > thead > tr > th,
+div.dt-scroll-body > table.dataTable > thead > tr > td {
+    overflow: hidden;
+}
+
+/* ============================================
+   4. DATATABLES - Ordenamiento
+   ============================================ */
+
+table.dataTable thead > tr > th:active,
+table.dataTable thead > tr > td:active {
+    outline: none;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before {
+    position: absolute;
+    display: block;
+    bottom: 50%;
+    content: "\25B2";
+    content: "\25B2"/"";
+}
+
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+    position: absolute;
+    display: block;
+    top: 50%;
+    content: "\25BC";
+    content: "\25BC"/"";
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order,
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order {
+    position: relative;
+    width: 12px;
+    height: 20px;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:after,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+    left: 0;
+    opacity: 0.125;
+    line-height: 9px;
+    font-size: 0.8em;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc,
+table.dataTable thead > tr > th.dt-orderable-desc,
+table.dataTable thead > tr > td.dt-orderable-asc,
+table.dataTable thead > tr > td.dt-orderable-desc {
+    cursor: pointer;
+}
+
+table.dataTable thead > tr > th.dt-orderable-asc:hover,
+table.dataTable thead > tr > th.dt-orderable-desc:hover,
+table.dataTable thead > tr > td.dt-orderable-asc:hover,
+table.dataTable thead > tr > td.dt-orderable-desc:hover {
+    outline: 2px solid rgba(0, 0, 0, 0.05);
+    outline-offset: -2px;
+}
+
+table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+    opacity: 0.6;
+}
+
+table.dataTable thead > tr > th.sorting_desc_disabled span.dt-column-order:after,
+table.dataTable thead > tr > th.sorting_asc_disabled span.dt-column-order:before,
+table.dataTable thead > tr > td.sorting_desc_disabled span.dt-column-order:after,
+table.dataTable thead > tr > td.sorting_asc_disabled span.dt-column-order:before {
+    display: none;
+}
+
+.dt-column-order {
+    margin-left: 20px;
+}
+
+/* ============================================
+   5. DATATABLES - Headers y footers
+   ============================================ */
+
+table.dataTable thead > tr > th div.dt-column-header,
+table.dataTable thead > tr > th div.dt-column-footer,
+table.dataTable thead > tr > td div.dt-column-header,
+table.dataTable thead > tr > td div.dt-column-footer,
+table.dataTable tfoot > tr > th div.dt-column-header,
+table.dataTable tfoot > tr > th div.dt-column-footer,
+table.dataTable tfoot > tr > td div.dt-column-header,
+table.dataTable tfoot > tr > td div.dt-column-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+}
+
+table.dataTable thead > tr > th div.dt-column-header span.dt-column-title,
+table.dataTable thead > tr > th div.dt-column-footer span.dt-column-title,
+table.dataTable thead > tr > td div.dt-column-header span.dt-column-title,
+table.dataTable thead > tr > td div.dt-column-footer span.dt-column-title,
+table.dataTable tfoot > tr > th div.dt-column-header span.dt-column-title,
+table.dataTable tfoot > tr > th div.dt-column-footer span.dt-column-title,
+table.dataTable tfoot > tr > td div.dt-column-header span.dt-column-title,
+table.dataTable tfoot > tr > td div.dt-column-footer span.dt-column-title {
+    flex-grow: 1;
+}
+
+table.dataTable thead > tr > th div.dt-column-header span.dt-column-title:empty,
+table.dataTable thead > tr > th div.dt-column-footer span.dt-column-title:empty,
+table.dataTable thead > tr > td div.dt-column-header span.dt-column-title:empty,
+table.dataTable thead > tr > td div.dt-column-footer span.dt-column-title:empty,
+table.dataTable tfoot > tr > th div.dt-column-header span.dt-column-title:empty,
+table.dataTable tfoot > tr > th div.dt-column-footer span.dt-column-title:empty,
+table.dataTable tfoot > tr > td div.dt-column-header span.dt-column-title:empty,
+table.dataTable tfoot > tr > td div.dt-column-footer span.dt-column-title:empty {
+    display: none;
+}
+
+table.dataTable > thead > tr > th,
+table.dataTable > thead > tr > td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+html:not([data-layout-mode="dark"]) table.dataTable > thead > tr > th,
+html:not([data-layout-mode="dark"]) table.dataTable > thead > tr > td {
+    border-bottom-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text-muted);
+    font-weight: 600;
+}
+
+table.dataTable > tfoot > tr > th,
+table.dataTable > tfoot > tr > td {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 10px 10px 6px 10px;
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td {
+    text-align: left;
+}
+
+/* ============================================
+   6. DATATABLES - Alineacion y tipos
+   ============================================ */
+
+table.dataTable th.dt-type-numeric,
+table.dataTable th.dt-type-date,
+table.dataTable td.dt-type-numeric,
+table.dataTable td.dt-type-date {
+    text-align: right;
+}
+
+table.dataTable th.dt-type-numeric div.dt-column-header,
+table.dataTable th.dt-type-numeric div.dt-column-footer,
+table.dataTable th.dt-type-date div.dt-column-header,
+table.dataTable th.dt-type-date div.dt-column-footer,
+table.dataTable td.dt-type-numeric div.dt-column-header,
+table.dataTable td.dt-type-numeric div.dt-column-footer,
+table.dataTable td.dt-type-date div.dt-column-header,
+table.dataTable td.dt-type-date div.dt-column-footer {
+    flex-direction: row-reverse;
+}
+
+table.dataTable th.dt-left,
+table.dataTable td.dt-left {
+    text-align: left;
+}
+
+table.dataTable th.dt-left div.dt-column-header,
+table.dataTable th.dt-left div.dt-column-footer,
+table.dataTable td.dt-left div.dt-column-header,
+table.dataTable td.dt-left div.dt-column-footer {
+    flex-direction: row;
+}
+
+table.dataTable th.dt-center,
+table.dataTable td.dt-center {
+    text-align: center;
+}
+
+table.dataTable th.dt-right,
+table.dataTable td.dt-right {
+    text-align: right;
+}
+
+table.dataTable th.dt-right div.dt-column-header,
+table.dataTable th.dt-right div.dt-column-footer,
+table.dataTable td.dt-right div.dt-column-header,
+table.dataTable td.dt-right div.dt-column-footer {
+    flex-direction: row-reverse;
+}
+
+table.dataTable th.dt-justify,
+table.dataTable td.dt-justify {
+    text-align: justify;
+}
+
+table.dataTable th.dt-nowrap,
+table.dataTable td.dt-nowrap {
+    white-space: nowrap;
+}
+
+table.dataTable th.dt-empty,
+table.dataTable td.dt-empty {
+    text-align: center;
+    vertical-align: top;
+}
+
+/* Head alignment */
+table.dataTable thead th.dt-head-left,
+table.dataTable thead td.dt-head-left,
+table.dataTable tfoot th.dt-head-left,
+table.dataTable tfoot td.dt-head-left {
+    text-align: left;
+}
+
+table.dataTable thead th.dt-head-center,
+table.dataTable thead td.dt-head-center,
+table.dataTable tfoot th.dt-head-center,
+table.dataTable tfoot td.dt-head-center {
+    text-align: center;
+}
+
+table.dataTable thead th.dt-head-right,
+table.dataTable thead td.dt-head-right,
+table.dataTable tfoot th.dt-head-right,
+table.dataTable tfoot td.dt-head-right {
+    text-align: right;
+}
+
+table.dataTable thead th.dt-head-justify,
+table.dataTable thead td.dt-head-justify,
+table.dataTable tfoot th.dt-head-justify,
+table.dataTable tfoot td.dt-head-justify {
+    text-align: justify;
+}
+
+table.dataTable thead th.dt-head-nowrap,
+table.dataTable thead td.dt-head-nowrap,
+table.dataTable tfoot th.dt-head-nowrap,
+table.dataTable tfoot td.dt-head-nowrap {
+    white-space: nowrap;
+}
+
+/* Body alignment */
+table.dataTable tbody th.dt-body-left,
+table.dataTable tbody td.dt-body-left {
+    text-align: left;
+}
+
+table.dataTable tbody th.dt-body-center,
+table.dataTable tbody td.dt-body-center {
+    text-align: center;
+}
+
+table.dataTable tbody th.dt-body-right,
+table.dataTable tbody td.dt-body-right {
+    text-align: right;
+}
+
+table.dataTable tbody th.dt-body-justify,
+table.dataTable tbody td.dt-body-justify {
+    text-align: justify;
+}
+
+table.dataTable tbody th.dt-body-nowrap,
+table.dataTable tbody td.dt-body-nowrap {
+    white-space: nowrap;
+}
+
+/* ============================================
+   7. DATATABLES - Estilos de filas
+   ============================================ */
+/* ==========================================================================
+   INICIO: ESTILOS PARA DATATABLE AL SELECCIONAR REGISTROS
+   ========================================================================== */
+
+/* ⚡ ESTILO PARA FILA SELECCIONADA (FONDO CLARO) */
+table.dataTable tbody tr.selected-row-table {
+    background-color: rgba(0, 126, 193, 0.12) !important;
+    color: #333333 !important; /* Cambiado: Texto gris oscuro para contraste */
+    transition: background-color 0.2s ease, border-left 0.1s ease;
+    position: relative;
+    box-shadow: inset 4px 0 0 0 #007ec1 !important; 
+}
+
+table.dataTable tbody tr.selected-row-table:hover {
+    background-color: rgba(0, 126, 193, 0.20) !important;
+}
+
+/* Fuerza a las celdas a heredar el color oscuro por si DataTables lo sobrescribe */
+table.dataTable tbody tr.selected-row-table td {
+    color: inherit !important;
+}
+/* ==========================================================================
+   FIN: ESTILOS PARA DATATABLE AL SELECCIONAR REGISTROS
+   ========================================================================== */
+table.dataTable > tbody > tr {
+    background-color: transparent;
+}
+
+table.dataTable > tbody > tr:first-child > * {
+    border-top: none;
+}
+
+table.dataTable > tbody > tr:last-child > * {
+    border-bottom: none;
+}
+
+table.dataTable > tbody > tr > th,
+table.dataTable > tbody > tr > td {
+    padding: 8px 10px;
+}
+
+/* Convenios: alinear verticalmente el contenido de todas las celdas. */
+#datatable_convenios.dataTable > tbody > tr > th,
+#datatable_convenios.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#datatable_list_farmacias.dataTable > tbody > tr > th,
+#datatable_list_farmacias.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#datatable_list_presentaciones.dataTable > tbody > tr > th,
+#datatable_list_presentaciones.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#datatable_list_clientes.dataTable > tbody > tr > th,
+#datatable_list_clientes.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#datatable_cuentas_contables.dataTable > tbody > tr > th,
+#datatable_cuentas_contables.dataTable > tbody > tr > td,
+#datatable_list_usuarios.dataTable > tbody > tr > th,
+#datatable_list_usuarios.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+/* Otras tablas intervenidas: mantener el contenido centrado verticalmente. */
+#datatable_conceptos.dataTable > tbody > tr > th,
+#datatable_conceptos.dataTable > tbody > tr > td,
+#datatable_list_proveedores.dataTable > tbody > tr > th,
+#datatable_list_proveedores.dataTable > tbody > tr > td,
+#datatable_list_cuentas_bancarias.dataTable > tbody > tr > th,
+#datatable_list_cuentas_bancarias.dataTable > tbody > tr > td,
+#datatable_movimientosFinancieros_ctaBancaria.dataTable > tbody > tr > th,
+#datatable_movimientosFinancieros_ctaBancaria.dataTable > tbody > tr > td,
+#datatable_recibos.dataTable > tbody > tr > th,
+#datatable_recibos.dataTable > tbody > tr > td,
+#datatable_detalles_alta.dataTable > tbody > tr > th,
+#datatable_detalles_alta.dataTable > tbody > tr > td,
+#datatable_pagos_alta.dataTable > tbody > tr > th,
+#datatable_pagos_alta.dataTable > tbody > tr > td,
+#datatable_presentaciones_alta.dataTable > tbody > tr > th,
+#datatable_presentaciones_alta.dataTable > tbody > tr > td,
+#datatable_detalles_detalle_recibo.dataTable > tbody > tr > th,
+#datatable_detalles_detalle_recibo.dataTable > tbody > tr > td,
+#datatable_pagos_detalle_recibo.dataTable > tbody > tr > th,
+#datatable_pagos_detalle_recibo.dataTable > tbody > tr > td,
+#datatable_presentaciones_detalle_recibo.dataTable > tbody > tr > th,
+#datatable_presentaciones_detalle_recibo.dataTable > tbody > tr > td,
+#datatable_facturas_compra.dataTable > tbody > tr > th,
+#datatable_facturas_compra.dataTable > tbody > tr > td,
+#datatable_factura_detalle.dataTable > tbody > tr > th,
+#datatable_factura_detalle.dataTable > tbody > tr > td,
+#datatable_factura_detalle_modal.dataTable > tbody > tr > th,
+#datatable_factura_detalle_modal.dataTable > tbody > tr > td,
+#datatable_factura_detalle_mod.dataTable > tbody > tr > th,
+#datatable_factura_detalle_mod.dataTable > tbody > tr > td,
+#datatable_list_lotes.dataTable > tbody > tr > th,
+#datatable_list_lotes.dataTable > tbody > tr > td,
+#datatable_ordPago_detalleLote.dataTable > tbody > tr > th,
+#datatable_ordPago_detalleLote.dataTable > tbody > tr > td,
+#datatable_list_factCompra.dataTable > tbody > tr > th,
+#datatable_list_factCompra.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+#datatable_list_liquidaciones.dataTable > tbody > tr > th,
+#datatable_list_liquidaciones.dataTable > tbody > tr > td,
+#datatable_detalle_detalleLiq.dataTable > tbody > tr > th,
+#datatable_detalle_detalleLiq.dataTable > tbody > tr > td {
+    vertical-align: middle;
+}
+
+/* Estados SAC reutilizables en tablas administrativas. */
+.sac-status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.75rem;
+    padding: 0.25rem 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+}
+
+.sac-status-active {
+    border-color: color-mix(in srgb, var(--success) 20%, var(--sac-surface));
+    background-color: color-mix(in srgb, var(--success) 10%, var(--sac-surface));
+    color: color-mix(in srgb, var(--success) 85%, var(--sac-text));
+}
+
+.sac-status-inactive {
+    border-color: color-mix(in srgb, var(--sac-action-danger) 20%, var(--sac-surface));
+    background-color: color-mix(in srgb, var(--sac-action-danger) 8%, var(--sac-surface));
+    color: color-mix(in srgb, var(--sac-action-danger) 85%, var(--sac-text));
+}
+
+.sac-status-neutral {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text-muted);
+}
+
+.sac-status-view {
+    border-color: var(--sac-action-view-hover-bg);
+    background-color: var(--sac-action-view-bg);
+    color: var(--sac-action-view);
+}
+
+.sac-status-modify {
+    border-color: var(--sac-action-modify-hover-bg);
+    background-color: var(--sac-action-modify-bg);
+    color: var(--sac-action-modify);
+}
+
+/* Selected row */
+table.dataTable > tbody > tr.selected > * {
+    box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.9);
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 0.9);
+    color: rgb(255, 255, 255);
+    color: rgb(var(--dt-row-selected-text));
+}
+
+table.dataTable > tbody > tr.selected a {
+    color: rgb(9, 10, 11);
+    color: rgb(var(--dt-row-selected-link));
+}
+
+/* Row border */
+table.dataTable.row-border > tbody > tr > *,
+table.dataTable.display > tbody > tr > * {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+table.dataTable.row-border > tbody > tr:first-child > *,
+table.dataTable.display > tbody > tr:first-child > * {
+    border-top: none;
+}
+
+table.dataTable.row-border > tbody > tr.selected + tr.selected > td,
+table.dataTable.display > tbody > tr.selected + tr.selected > td {
+    border-top-color: rgba(13, 110, 253, 0.65);
+    border-top-color: rgba(var(--dt-row-selected), 0.65);
+}
+
+/* Cell border */
+table.dataTable.cell-border > tbody > tr > * {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-right: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+table.dataTable.cell-border > tbody > tr > *:first-child {
+    border-left: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+table.dataTable.cell-border > tbody > tr:first-child > * {
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Stripe */
+table.dataTable.stripe > tbody > tr:nth-child(odd) > *,
+table.dataTable.display > tbody > tr:nth-child(odd) > * {
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.023);
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-stripe), var(--dt-row-stripe-alpha));
+}
+
+table.dataTable.stripe > tbody > tr:nth-child(odd).selected > *,
+table.dataTable.display > tbody > tr:nth-child(odd).selected > * {
+    box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.923);
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), var(--dt-row-selected-stripe-alpha));
+}
+
+/* Hover */
+table.dataTable.hover > tbody > tr:hover > *,
+table.dataTable.display > tbody > tr:hover > * {
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.035);
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-hover), var(--dt-row-hover-alpha));
+}
+
+table.dataTable.hover > tbody > tr.selected:hover > *,
+table.dataTable.display > tbody > tr.selected:hover > * {
+    box-shadow: inset 0 0 0 9999px #0d6efd !important;
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), 1) !important;
+}
+
+/* Order column */
+table.dataTable.order-column > tbody tr > .sorting_1,
+table.dataTable.order-column > tbody tr > .sorting_2,
+table.dataTable.order-column > tbody tr > .sorting_3,
+table.dataTable.display > tbody tr > .sorting_1,
+table.dataTable.display > tbody tr > .sorting_2,
+table.dataTable.display > tbody tr > .sorting_3 {
+    box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.019);
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-column-ordering), var(--dt-column-ordering-alpha));
+}
+
+table.dataTable.order-column > tbody tr.selected > .sorting_1,
+table.dataTable.order-column > tbody tr.selected > .sorting_2,
+table.dataTable.order-column > tbody tr.selected > .sorting_3,
+table.dataTable.display > tbody tr.selected > .sorting_1,
+table.dataTable.display > tbody tr.selected > .sorting_2,
+table.dataTable.display > tbody tr.selected > .sorting_3 {
+    box-shadow: inset 0 0 0 9999px rgba(13, 110, 253, 0.919);
+    box-shadow: inset 0 0 0 9999px rgba(var(--dt-row-selected), var(--dt-row-selected-column-ordering-alpha));
+}
+
+/* ============================================
+   8. DATATABLES - Layout y contenedor
+   ============================================ */
+
+div.dt-container div.dt-layout-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0.75em 0;
+}
+
+div.dt-container div.dt-layout-row div.dt-layout-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-start {
+    justify-content: flex-start;
+    margin-right: auto;
+}
+
+div.dt-container div.dt-layout-row div.dt-layout-cell.dt-layout-end {
+    justify-content: flex-end;
+    margin-left: auto;
+}
+
+div.dt-container div.dt-layout-row div.dt-layout-cell:empty {
+    display: none;
+}
+
+div.dt-container div.dt-layout-start > *:not(:last-child) {
+    margin-right: 1em;
+}
+
+div.dt-container div.dt-layout-end > *:not(:first-child) {
+    margin-left: 1em;
+}
+
+div.dt-container div.dt-layout-full {
+    width: 100%;
+}
+
+div.dt-container div.dt-layout-full > *:only-child {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.dt-container div.dt-layout-table > div {
+    display: block !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+    div.dt-container div.dt-layout-row:not(.dt-layout-table) {
+        display: block;
+    }
+
+    div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell {
+        display: block;
+        text-align: center;
+    }
+
+    div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell > * {
+        margin: 0.5em 0;
+    }
+
+    div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell.dt-layout-start {
+        margin-right: 0;
+    }
+
+    div.dt-container div.dt-layout-row:not(.dt-layout-table) div.dt-layout-cell.dt-layout-end {
+        margin-left: 0;
+    }
+
+    div.dt-container div.dt-layout-start > *:not(:last-child) {
+        margin-right: 0;
+    }
+
+    div.dt-container div.dt-layout-end > *:not(:first-child) {
+        margin-left: 0;
+    }
+}
+
+/* ============================================
+   9. DATATABLES - Paginacion
+   ============================================ */
+
+div.dt-container .dt-paging .pagination {
+    gap: 3px;
+    align-items: center;
+}
+
+/* Reset del li */
+div.dt-container .dt-paging .pagination .page-item,
+div.dt-container .dt-paging .pagination li.dt-paging-button {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+div.dt-container .dt-paging .pagination .page-item:hover,
+div.dt-container .dt-paging .pagination li.dt-paging-button:hover {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Estilos del enlace */
+div.dt-container .dt-paging .pagination .page-link {
+    display: inline-block;
+    padding: 0.4rem 0.75rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 5px !important;
+    border: 1px solid #d1d9e0 !important;
+    color: #4a5568 !important;
+    background-color: #fff !important;
+    transition: all 0.15s ease;
+    margin: 0 !important;
+    text-decoration: none;
+}
+
+div.dt-container .dt-paging .pagination .page-item:not(.disabled) .page-link:hover,
+div.dt-container .dt-paging .pagination .page-link:hover {
+    color: #1a6fc4 !important;
+    background-color: #e3f0fc !important;
+    border-color: #1a6fc4 !important;
+}
+
+div.dt-container .dt-paging .pagination .page-item.active .page-link {
+    color: #fff !important;
+    background-color: #1a6fc4 !important;
+    border-color: #1a6fc4 !important;
+}
+
+div.dt-container .dt-paging .pagination .page-item.disabled .page-link {
+    color: #adb5bd !important;
+    background-color: #f8f9fa !important;
+    border-color: #e9ecef !important;
+    cursor: default;
+}
+
+/* Select de registros */
+.dataTables_wrapper .dataTables_length select {
+    padding-right: 35px !important;
+    padding-left: 10px !important;
+    font-weight: 600 !important;
+}
+
+/* Alinear controles de length y search en la misma fila */
+div.dt-container > .row {
+    align-items: center;
+}
+
+/* Selector de cantidad de registros en línea */
+.dt-length label {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    white-space: nowrap !important;
+    flex-wrap: nowrap !important;
+}
+
+.dt-length select {
+    display: inline-block !important;
+    width: auto !important;
+    min-width: 70px !important;
+}
+
+/* ============================================
+   10. DATATABLES - Buscador
+   ============================================ */
+
+div.dt-container .dt-search {
+    margin-bottom: 1rem;
+}
+
+div.dt-container .dt-search label {
+    font-weight: 500;
+    color: var(--bs-body-color);
+    font-size: 0.875rem;
+}
+
+div.dt-container .dt-search input {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.938rem !important;
+    min-width: 280px;
+    border-radius: 6px !important;
+    border: 1px solid #ced4da !important;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+div.dt-container .dt-search input:focus {
+    border-color: var(--bs-primary) !important;
+    box-shadow: 0 0 0 3px rgba(26, 111, 196, 0.15) !important;
+    outline: none;
+}
+
+div.dt-container .dt-search input::placeholder {
+    color: #adb5bd;
+}
+
+/* Tablas del piloto HMI: estado normal neutro. */
+.sac-asiento-table > tbody > tr:hover > * {
+    box-shadow: inset 0 0 0 9999px var(--sac-surface-muted);
+}
+
+/* Variante de solo lectura: filas limpias y bordes unicamente horizontales. */
+table.sac-asiento-detail-table > thead > tr > th,
+table.sac-asiento-detail-table > thead > tr > td {
+    padding: 8px 12px;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--sac-border) !important;
+    border-left: none !important;
+    background-color: var(--sac-surface-muted);
+    color: #475569;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+table.sac-asiento-detail-table > tbody > tr > th,
+table.sac-asiento-detail-table > tbody > tr > td {
+    border-top: 1px solid var(--sac-border) !important;
+    border-right: none !important;
+    border-bottom: none !important;
+    border-left: none !important;
+}
+
+table.sac-asiento-detail-table.stripe > tbody > tr:nth-child(odd) > *,
+table.sac-asiento-detail-table.display > tbody > tr:nth-child(odd) > * {
+    box-shadow: none;
+}
+
+/* ============================================
+   11. DATATABLES - Processing loader
+   ============================================ */
+
+div.dt-processing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin-left: -100px;
+    margin-top: -22px;
+    text-align: center;
+    padding: 2px;
+    z-index: 10;
+}
+
+div.dt-processing > div:last-child {
+    position: relative;
+    width: 80px;
+    height: 15px;
+    margin: 1em auto;
+}
+
+div.dt-processing > div:last-child > div {
+    position: absolute;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(13, 110, 253);
+    background: rgb(var(--dt-row-selected));
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+div.dt-processing > div:last-child > div:nth-child(1) {
+    left: 8px;
+    animation: datatables-loader-1 0.6s infinite;
+}
+
+div.dt-processing > div:last-child > div:nth-child(2) {
+    left: 8px;
+    animation: datatables-loader-2 0.6s infinite;
+}
+
+div.dt-processing > div:last-child > div:nth-child(3) {
+    left: 32px;
+    animation: datatables-loader-2 0.6s infinite;
+}
+
+div.dt-processing > div:last-child > div:nth-child(4) {
+    left: 56px;
+    animation: datatables-loader-3 0.6s infinite;
+}
+
+@keyframes datatables-loader-1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes datatables-loader-2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(24px, 0);
+    }
+}
+
+@keyframes datatables-loader-3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+
+/* ============================================
+   12. DARK MODE
+   ============================================ */
+
+html[data-bs-theme="dark"] table.dataTable > thead > tr > th,
+html[data-bs-theme="dark"] table.dataTable > thead > tr > td {
+    border-bottom-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text-muted);
+    font-weight: 600;
+}
+
+html[data-bs-theme="dark"] .sac-status-active {
+    border-color: rgba(52, 211, 153, 0.3);
+    background-color: rgba(16, 185, 129, 0.14);
+    color: #6ee7b7;
+}
+
+html[data-bs-theme="dark"] .sac-status-inactive {
+    border-color: rgba(248, 113, 113, 0.3);
+    background-color: rgba(248, 113, 113, 0.14);
+    color: #fca5a5;
+}
+
+html[data-bs-theme="dark"] .sac-status-neutral {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text-muted);
+}
+
+html[data-bs-theme="dark"] .sac-status-view {
+    border-color: var(--sac-action-view-hover-bg);
+    background-color: var(--sac-action-view-bg);
+    color: var(--sac-action-view);
+}
+
+html[data-bs-theme="dark"] .sac-status-modify {
+    border-color: var(--sac-action-modify-hover-bg);
+    background-color: var(--sac-action-modify-bg);
+    color: var(--sac-action-modify);
+}
+
+html[data-bs-theme="dark"] table.dataTable tbody tr.selected-row-table {
+    color: var(--sac-text) !important;
+}
+
+/* Paginacion DataTables para el tema activado por Bootstrap. */
+html[data-bs-theme="dark"] div.dt-container .dt-paging .pagination .page-link {
+    border-color: var(--sac-border) !important;
+    background-color: var(--sac-surface-muted) !important;
+    color: var(--sac-text-muted) !important;
+}
+
+html[data-bs-theme="dark"] div.dt-container .dt-paging .pagination .page-item:not(.disabled) .page-link:hover,
+html[data-bs-theme="dark"] div.dt-container .dt-paging .pagination .page-link:hover {
+    border-color: var(--sac-action-primary) !important;
+    background-color: rgba(91, 155, 245, 0.18) !important;
+    color: var(--sac-action-view) !important;
+}
+
+html[data-bs-theme="dark"] div.dt-container .dt-paging .pagination .page-item.active .page-link {
+    border-color: var(--sac-action-primary) !important;
+    background-color: var(--sac-action-primary) !important;
+    color: #0f172a !important;
+}
+
+html[data-bs-theme="dark"] div.dt-container .dt-paging .pagination .page-item.disabled .page-link {
+    border-color: var(--sac-border) !important;
+    background-color: var(--sac-surface) !important;
+    color: var(--sac-text-subtle) !important;
+    cursor: default;
+}
+
+html[data-bs-theme="dark"] div.dt-container .dt-paging .pagination .page-link:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--sac-focus-ring) !important;
+}
+
+/* Libro Mayor: mantener estados de saldo visibles también en tema claro. */
+.sac-libro-mayor__empty {
+    min-height: 140px;
+}
+
+.sac-libro-mayor__table > tbody > tr.sac-libro-mayor__row--opening > *,
+.sac-libro-mayor__table > tbody > tr.sac-libro-mayor__row--closing > * {
+    color: var(--sac-text);
+    font-weight: 600;
+}
+
+.sac-libro-mayor__table > tbody > tr.sac-libro-mayor__row--opening > * {
+    background-color: #eaf5fc;
+}
+
+.sac-libro-mayor__table > tbody > tr.sac-libro-mayor__row--closing > * {
+    background-color: var(--sac-surface-muted);
+}
+
+/* Libro Mayor: estilos locales para filtros, estados y tabla en tema oscuro. */
+html[data-bs-theme="dark"] .sac-libro-mayor .card {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .card-body {
+    background-color: var(--sac-surface);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .form-label,
+html[data-bs-theme="dark"] .sac-libro-mayor .form-check-label {
+    color: var(--sac-text-muted);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .form-control,
+html[data-bs-theme="dark"] .sac-libro-mayor .form-select {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .form-control:focus,
+html[data-bs-theme="dark"] .sac-libro-mayor .form-select:focus {
+    border-color: var(--sac-action-primary);
+    box-shadow: 0 0 0 0.2rem var(--sac-focus-ring);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__inner,
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list--dropdown,
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list[aria-expanded] {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list--single .choices__item,
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list--dropdown .choices__item,
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list[aria-expanded] .choices__item {
+    color: var(--sac-text);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__input {
+    border-color: var(--sac-border);
+    background-color: var(--sac-surface);
+    color: var(--sac-text);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list--dropdown .choices__item--selectable.is-highlighted,
+html[data-bs-theme="dark"] .sac-libro-mayor .choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background-color: rgba(91, 155, 245, 0.18);
+    color: var(--sac-action-view);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor .choices.is-focused .choices__inner,
+html[data-bs-theme="dark"] .sac-libro-mayor .choices.is-open .choices__inner {
+    border-color: var(--sac-action-primary);
+    box-shadow: 0 0 0 0.2rem var(--sac-focus-ring);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor__empty {
+    border-color: rgba(91, 155, 245, 0.28);
+    background-color: rgba(91, 155, 245, 0.1);
+    color: var(--sac-text);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor__empty .text-muted {
+    color: var(--sac-text-muted) !important;
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor__table {
+    --bs-table-color: var(--sac-text);
+    --bs-table-bg: var(--sac-surface);
+    --bs-table-striped-bg: rgba(255, 255, 255, 0.025);
+    --bs-table-striped-color: var(--sac-text);
+    --bs-table-hover-bg: rgba(255, 255, 255, 0.045);
+    --bs-table-hover-color: var(--sac-text);
+    border-color: var(--sac-border);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor__table > tbody > tr > * {
+    border-color: var(--sac-border);
+}
+
+html[data-bs-theme="dark"] .sac-libro-mayor__table > tbody > tr.sac-libro-mayor__row--opening > *,
+html[data-bs-theme="dark"] .sac-libro-mayor__table > tbody > tr.sac-libro-mayor__row--closing > * {
+    border-color: var(--sac-border-strong);
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text);
+    font-weight: 600;
+}
+
+[data-layout-mode="dark"] {
+    /* Variables DataTables */
+    --dt-row-hover: 255, 255, 255;
+    --dt-row-stripe: 255, 255, 255;
+    --dt-column-ordering: 255, 255, 255;
+
+    /* DataTables: Tabla novedades */
+    #datatable_novedades th {
+        background-color: #212529 !important;
+        color: #ced4da !important;
+        border-bottom-color: #3a3f44 !important;
+    }
+
+    /* DataTables: Bordes */
+    table.dataTable > thead > tr > th,
+    table.dataTable > thead > tr > td {
+        border-bottom-color: #3a3f44;
+    }
+
+    table.dataTable > tfoot > tr > th,
+    table.dataTable > tfoot > tr > td {
+        border-top-color: #3a3f44;
+    }
+
+    table.dataTable.row-border > tbody > tr > *,
+    table.dataTable.display > tbody > tr > * {
+        border-top-color: #2a2f34;
+    }
+
+    table.dataTable.cell-border > tbody > tr > th,
+    table.dataTable.cell-border > tbody > tr > td {
+        border-color: #2a2f34;
+    }
+
+    /* DataTables: Control expand/collapse */
+    table.dataTable td.dt-control:before {
+        border-left-color: rgba(255, 255, 255, 0.5);
+    }
+
+    table.dataTable tr.dt-hasChild td.dt-control:before {
+        border-top-color: rgba(255, 255, 255, 0.5);
+        border-left-color: transparent;
+    }
+
+    /* DataTables: Hover ordenamiento */
+    table.dataTable thead > tr > th.dt-orderable-asc:hover,
+    table.dataTable thead > tr > th.dt-orderable-desc:hover,
+    table.dataTable thead > tr > td.dt-orderable-asc:hover,
+    table.dataTable thead > tr > td.dt-orderable-desc:hover {
+        outline-color: rgba(255, 255, 255, 0.05);
+    }
+
+    /* DataTables: Inputs */
+    .dt-container .dt-search input,
+    .dt-container .dt-length select,
+    .dt-container .dt-input {
+        border-color: #3a3f44;
+        background-color: #262a2f;
+        color: #ced4da;
+    }
+
+    .dt-container .dt-search input:focus,
+    .dt-container .dt-length select:focus {
+        border-color: #5ea3cb;
+        outline: none;
+    }
+
+    div.dt-container .dt-search label {
+        color: #ced4da;
+    }
+
+    div.dt-container .dt-search input::placeholder {
+        color: #6c757d;
+    }
+
+    /* DataTables: Paginacion */
+    .dt-container .dt-paging .pagination .page-link {
+        color: #adb5bd !important;
+        background-color: #262a2f !important;
+        border-color: #3a3f44 !important;
+    }
+
+    .dt-container .dt-paging .pagination .page-item:not(.disabled) .page-link:hover,
+    .dt-container .dt-paging .pagination .page-link:hover {
+        color: #fff !important;
+        background-color: rgba(94, 163, 203, 0.3) !important;
+        border-color: #5ea3cb !important;
+    }
+
+    .dt-container .dt-paging .pagination .page-item.active .page-link {
+        color: #fff !important;
+        background-color: #5ea3cb !important;
+        border-color: #5ea3cb !important;
+    }
+
+    .dt-container .dt-paging .pagination .page-item.disabled .page-link {
+        color: #6c757d !important;
+        background-color: #1a1d21 !important;
+        border-color: #3a3f44 !important;
+    }
+
+    /* DataTables: Info y processing */
+    .dt-container .dt-info {
+        color: #878a99;
+    }
+
+    div.dt-processing {
+        background-color: rgba(33, 37, 41, 0.9);
+        color: #ced4da;
+    }
+
+    table.dataTable td.dataTables_empty {
+        color: #878a99;
+    }
+
+    /* DataTables: Empty footer */
+    .dt-container.dt-empty-footer table.dataTable,
+    .dt-container.dt-empty-footer tbody > tr:last-child > *,
+    .dt-container.dt-empty-footer .dt-scroll-body {
+        border-bottom-color: #3a3f44;
+    }
+}
+
+/* RTL Support */
+*[dir="rtl"] table.dataTable thead th,
+*[dir="rtl"] table.dataTable thead td,
+*[dir="rtl"] table.dataTable tfoot th,
+*[dir="rtl"] table.dataTable tfoot td {
+    text-align: right;
+}
+
+*[dir="rtl"] table.dataTable th.dt-type-numeric,
+*[dir="rtl"] table.dataTable th.dt-type-date,
+*[dir="rtl"] table.dataTable td.dt-type-numeric,
+*[dir="rtl"] table.dataTable td.dt-type-date {
+    text-align: left;
+}
+
+*[dir="rtl"] div.dt-container div.dt-layout-cell.dt-start {
+    text-align: right;
+}
+
+*[dir="rtl"] div.dt-container div.dt-layout-cell.dt-end {
+    text-align: left;
+}
+
+*[dir="rtl"] div.dt-container div.dt-search input {
+    margin: 0 3px 0 0;
+}

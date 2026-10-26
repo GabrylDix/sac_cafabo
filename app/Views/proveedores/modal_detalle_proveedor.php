@@ -1,0 +1,214 @@
+<!-- MODAL NUEVO PROVEEDOR -->
+<div id="modalDetalleProveedor" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalConvenioDetalleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" style="max-width: 1200px;">
+        <div class="modal-content border-0 shadow-lg" style="max-height: 90vh;">
+            <div class="modal-header border-0 py-3">
+                <div class="d-flex align-items-center justify-content-between w-100 gap-4">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="p-3 rounded-3 bg-primary bg-opacity-10 text-white">
+                            <i class="bi bi-building-gear fs-3"></i>
+                        </div>
+                        <div>
+                            <h2 class="modal-title fs-2 fw-bold mb-1" id="nombreProveedor_detalleProveedor"></h2>
+                            <p class="text-muted mb-0">Informacion del Proveedor</p>
+                        </div>
+                    </div>
+                    <span id="badge_estado_detalleProveedor" class="badge bg-success bg-opacity-10 text-white border border-success border-opacity-25 me-5 px-4 py-2 fs-6 fw-medium">
+                        <i class="bi bi-check-circle me-2"></i>
+                        <span id="estado_texto_detalleProveedor"></span>
+                    </span>
+                </div>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-4" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <hr class="m-0">
+
+            <div class="modal-body px-4 pb-4" style="overflow-y: auto;">
+                <section class="mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-file-text text-primary fs-5"></i>
+                        <h3 class="text-dark text-uppercase fw-semibold fs-5 mb-0">Información Principal</h3>
+                    </div>
+                    <div class="row g-3">
+                        <!-- <div class="col-md-3">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-card-text me-1"></i>Razón Social
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="razonSocial_detalleFarmacia">—</p>
+                            </div>
+                        </div> -->
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-cc-square me-1"></i>Nombre Fantasia
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="nombreFantasia_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-cc-square me-1"></i>CUIT
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="cuit_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-cc-square me-1"></i>Condicion IVA
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="codicionIva_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                    </div> 
+                </section>
+                <hr>
+                <section class="mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-geo-alt text-primary fs-5"></i>
+                        <h3 class="text-dark text-uppercase fw-semibold fs-5 mb-0">Ubicación</h3>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-map me-1"></i>Provincia
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="cod_prov_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-map me-1"></i>Localidad
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="cod_localidad_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-map me-1"></i>Código Postal
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="codPostal_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3 mt-1">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-map me-1"></i>Dirección
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="direccion_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-journal-text text-primary fs-5"></i>
+                        <h3 class="text-dark text-uppercase fw-semibold fs-5 mb-0">Contabilidad</h3>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-diagram-3 me-1"></i>Cuenta Contable
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="cuentaContable_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-bank text-primary fs-5"></i>
+                        <h3 class="text-dark text-uppercase fw-semibold fs-5 mb-0">Información Bancaria</h3>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-buildings me-1"></i>CBU
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="cbu_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-tag me-1"></i>Alias CBU
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="aliascbu_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-wallet2 me-1"></i>CVU
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="cvu_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-tag me-1"></i>Alias CVU
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="aliascvu_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <i class="bi bi-person-lines-fill text-primary fs-5"></i>
+                        <h3 class="text-dark text-uppercase fw-semibold fs-5 mb-0">Información de Contacto</h3>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-map me-1"></i>Teléfono
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="telf_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-map me-1"></i>Email
+                            </label>
+                            <div class="bg-body-secondary bg-opacity-50 rounded-2 px-3 py-2 border border-black border-opacity-25">
+                                <p class="mb-0 small fw-medium text-dark" id="email_detalleProveedor">—</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="bi bi-card-checklist text-primary fs-5"></i>
+                            <h3 class="text-dark text-uppercase fw-semibold fs-5 mb-0">EXTRAS</h3>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-12">
+                            <label class="form-label text-muted fw-medium small mb-1">
+                                <i class="bi bi-clipboard2-pulse me-1"></i>Observaciones
+                            </label>
+                            <textarea class="form-control" style="resize:none" rows="4" maxlength="250" id="observ_detalleProveedor" disabled></textarea>
+                        </div>
+                    </div>
+                </section>
+                <div class="pt-3">
+                    <p class="text-muted text-center mb-0" style="font-size: 0.75rem;">
+                        Los datos mostrados son de solo lectura. Para realizar cambios, contacte al administrador del sistema.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

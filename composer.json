@@ -1,0 +1,10 @@
+{
+    "name": "sac/sistema-administrativo",
+    "description": "Sistema Administrativo SAC",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.4",
+        "phpoffice/phpspreadsheet": "^5.10"
+    }
+}

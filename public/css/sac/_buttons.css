@@ -1,0 +1,198 @@
+/* ============================================
+   Botones SAC - Jerarquia HMI
+   ============================================ */
+
+.sac-table-actions {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Accion primaria de alta/creacion a nivel de vista. */
+.sac-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 2.5rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--sac-action-primary);
+    border-radius: 0.5rem;
+    background-color: var(--sac-action-primary);
+    color: var(--sac-surface);
+    font-weight: 600;
+    line-height: 1.25;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sac-btn-primary:hover,
+.sac-btn-primary:active {
+    border-color: var(--sac-action-primary-hover);
+    background-color: var(--sac-action-primary-hover);
+    color: var(--sac-surface);
+}
+
+.sac-btn-primary:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 4px var(--sac-focus-ring);
+}
+
+.sac-btn-primary i {
+    font-size: 1.125rem;
+    line-height: 1;
+}
+
+.sac-btn-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: transparent;
+    color: var(--sac-text-muted);
+    line-height: 1;
+    transition: background-color 0.2s ease;
+}
+
+.sac-btn-icon:hover {
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text);
+}
+
+.sac-btn-icon:focus-visible {
+    outline: 0;
+    box-shadow: 0 0 0 4px var(--sac-focus-ring);
+}
+
+.sac-btn-icon-sm {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+/* Estado normal comun: acciones discretas y monocromaticas. */
+.sac-btn-view,
+.sac-btn-modify,
+.sac-btn-revert,
+.sac-btn-delete {
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--sac-text-muted);
+}
+
+/* Ver: referencia azul visible con tinte suave. */
+.sac-btn-view {
+    background-color: var(--sac-action-view-bg);
+    color: var(--sac-action-view);
+}
+
+.sac-btn-view:hover,
+.sac-btn-view:active {
+    background-color: var(--sac-action-view-hover-bg);
+    color: var(--sac-action-view);
+}
+
+/* Modificar: tinte ambar profesional, sin amarillo brillante. */
+.sac-btn-modify {
+    background-color: var(--sac-action-modify-bg);
+    color: var(--sac-action-modify);
+}
+
+.sac-btn-modify:hover,
+.sac-btn-modify:active {
+    background-color: var(--sac-action-modify-hover-bg);
+    color: var(--sac-action-modify-hover);
+}
+
+/* Activar: verde suave, en la misma jerarquia visual que las demas acciones. */
+.sac-btn-activate {
+    background-color: color-mix(in srgb, var(--success) 8%, var(--sac-surface));
+    color: color-mix(in srgb, var(--success) 78%, var(--sac-surface));
+}
+
+.sac-btn-activate:hover,
+.sac-btn-activate:active {
+    background-color: color-mix(in srgb, var(--success) 14%, var(--sac-surface));
+    color: var(--success-dark);
+}
+
+/* Revertir y eliminar: tinte rojo suave para acciones criticas. */
+.sac-btn-revert,
+.sac-btn-delete {
+    background-color: var(--sac-action-danger-bg);
+    color: var(--sac-action-danger);
+}
+
+.sac-btn-revert:hover,
+.sac-btn-revert:active,
+.sac-btn-delete:hover,
+.sac-btn-delete:active {
+    background-color: var(--sac-action-danger-hover-bg);
+    color: var(--sac-action-danger-hover);
+}
+
+.sac-btn-icon:disabled,
+.sac-btn-icon.disabled {
+    background-color: transparent;
+    border: none;
+    color: var(--sac-text-subtle);
+}
+
+/* Acciones de DataTables: tonos y estados explícitos para el tema oscuro. */
+html[data-bs-theme="dark"] .sac-btn-view {
+    background-color: var(--sac-action-view-bg);
+    color: var(--sac-action-view);
+}
+
+html[data-bs-theme="dark"] .sac-btn-view:hover,
+html[data-bs-theme="dark"] .sac-btn-view:active {
+    background-color: var(--sac-action-view-hover-bg);
+    color: var(--sac-action-view);
+}
+
+html[data-bs-theme="dark"] .sac-btn-modify {
+    background-color: var(--sac-action-modify-bg);
+    color: var(--sac-action-modify);
+}
+
+html[data-bs-theme="dark"] .sac-btn-modify:hover,
+html[data-bs-theme="dark"] .sac-btn-modify:active {
+    background-color: var(--sac-action-modify-hover-bg);
+    color: var(--sac-action-modify-hover);
+}
+
+html[data-bs-theme="dark"] .sac-btn-activate {
+    background-color: rgba(16, 185, 129, 0.16);
+    color: #6ee7b7;
+}
+
+html[data-bs-theme="dark"] .sac-btn-activate:hover,
+html[data-bs-theme="dark"] .sac-btn-activate:active {
+    background-color: rgba(16, 185, 129, 0.26);
+    color: #a7f3d0;
+}
+
+html[data-bs-theme="dark"] .sac-btn-revert,
+html[data-bs-theme="dark"] .sac-btn-delete {
+    background-color: var(--sac-action-danger-bg);
+    color: var(--sac-action-danger);
+}
+
+html[data-bs-theme="dark"] .sac-btn-revert:hover,
+html[data-bs-theme="dark"] .sac-btn-revert:active,
+html[data-bs-theme="dark"] .sac-btn-delete:hover,
+html[data-bs-theme="dark"] .sac-btn-delete:active {
+    background-color: var(--sac-action-danger-hover-bg);
+    color: var(--sac-action-danger-hover);
+}
+
+html[data-bs-theme="dark"] .sac-btn-icon:disabled,
+html[data-bs-theme="dark"] .sac-btn-icon.disabled {
+    background-color: transparent;
+    color: var(--sac-text-subtle);
+}

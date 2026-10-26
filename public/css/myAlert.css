@@ -1,0 +1,192 @@
+/***********************************************
+* LOADER ESTILO v0 - CRUZ MÉDICA
+************************************************/
+#myAlert {
+    display: none;
+    z-index: 999998;
+}
+#myAlert .modal-content {
+    background-color: #f2f2f2; /* Fondo gris claro */
+    border-radius: 16px; /* Bordes bien redondeados, como en el diseño original */
+    border: none; /* Quitamos el borde por defecto de Bootstrap */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+}
+
+.health-loader-container {
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- Contenedor de la animación principal --- */
+.main-animation-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px auto;
+}
+
+/* --- Anillo giratorio --- */
+.spinner-ring {
+    position: absolute;
+    inset: 0;
+    border: 4px solid #d1fae5; /* Color del borde (emerald-100) */
+    border-top-color: #10b981; /* Color de la parte que gira (emerald-500) */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* --- Cruz Médica --- */
+.medical-cross {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cross-bar-vertical,
+.cross-bar-horizontal {
+    position: absolute;
+    background-color: #10b981; /* emerald-500 */
+    border-radius: 9999px;
+    animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+.cross-bar-vertical {
+    width: 6px;
+    height: 32px;
+}
+.cross-bar-horizontal {
+    width: 32px;
+    height: 6px;
+}
+
+/* --- Puntos pulsantes alrededor --- */
+.pinging-dots-container {
+    position: absolute;
+    inset: -16px; /* Para que estén por fuera del anillo */
+}
+.pinging-dot {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #34d399; /* emerald-400 */
+    animation: ping 2s infinite cubic-bezier(0, 0, 0.2, 1);
+}
+.dot-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+.dot-2 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    animation-delay: 0.5s;
+}
+.dot-3 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 1s;
+}
+.dot-4 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    animation-delay: 1.5s;
+}
+
+/* --- Textos de carga --- */
+.loading-text {
+    margin-bottom: 24px;
+}
+.loading-title {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 600;
+    color: #374151; /* gray-800 */
+}
+.loading-message {
+    font-size: 0.875rem; /* 14px */
+    color: #6b7280; /* gray-600 */
+    min-height: 20px; /* Para que no salte el texto */
+}
+
+/* --- Barra de progreso --- */
+.progress-bar-container {
+    width: 100%;
+    height: 6px;
+    background-color: #e5e7eb; /* gray-200 */
+    border-radius: 9999px;
+    overflow: hidden; /* Oculta lo que se sale de la barra */
+}
+.progress-bar-indeterminate {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #10b981, #3b82f6); /* emerald-500 to blue-500 */
+    animation: indeterminate-progress 2s infinite ease-in-out;
+}
+
+html[data-bs-theme="dark"] #myAlert .modal-content {
+    background-color: #262a2f;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+html[data-bs-theme="dark"] .loading-title {
+    color: #e9ecef;
+}
+
+html[data-bs-theme="dark"] .loading-message {
+    color: #98a6ad;
+}
+
+html[data-bs-theme="dark"] .progress-bar-container {
+    background-color: #3a3f44;
+}
+
+html[data-bs-theme="dark"] .spinner-ring {
+    border-color: rgba(16, 185, 129, 0.2);
+    border-top-color: #34d399;
+}
+
+html[data-bs-theme="dark"] .cross-bar-vertical,
+html[data-bs-theme="dark"] .cross-bar-horizontal {
+    background-color: #34d399;
+}
+
+html[data-bs-theme="dark"] .pinging-dot {
+    background-color: #6ee7b7;
+}
+
+/* --- KEYFRAMES (Las animaciones) --- */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes ping {
+    75%,
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes indeterminate-progress {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}

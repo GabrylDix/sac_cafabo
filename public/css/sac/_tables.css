@@ -1,0 +1,62 @@
+/* ============================================
+   2. TABLA ACCESIBLE SAC
+   Mejoras de legibilidad para adultos mayores
+   ============================================ */
+
+.sac-tabla {
+    font-size: 0.938rem;
+}
+
+.sac-tabla thead th {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--bs-body-color);
+    background-color: var(--bs-secondary-light);
+    border-bottom: 2px solid #d1d9e0;
+    padding: 0.85rem 0.75rem;
+}
+
+.sac-tabla tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+.sac-tabla tbody tr:nth-child(odd) {
+    background-color: #fafbfc;
+}
+
+.sac-tabla tbody tr:nth-child(even) {
+    background-color: #fff;
+}
+
+.sac-tabla tbody tr:hover {
+    background-color: #e8f4fc !important;
+}
+
+.sac-tabla tbody td {
+    padding: 0.75rem;
+    vertical-align: middle;
+}
+
+.data-doble-cell {
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--bs-body-color);
+}
+
+.data-doble-cell small {
+    display: block;
+    color: #6c757d;
+    font-size: 0.8rem;
+    margin-top: 3px;
+}
+
+[data-layout-mode="dark"] {
+    /* --- Celdas especiales --- */
+    .data-doble-cell {
+        color: #ced4da;
+    }
+
+    .data-doble-cell small {
+        color: #878a99;
+    }
+}

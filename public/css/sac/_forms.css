@@ -1,0 +1,88 @@
+/* ============================================
+   File Upload Styles
+   ============================================ */
+.file-upload-area {
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    background-color: rgba(249, 250, 251, 0.5);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.file-upload-area:hover {
+    background-color: rgba(249, 250, 251, 1);
+    border-color: var(--primary);
+}
+
+.file-upload-label {
+    display: block;
+    cursor: pointer;
+    margin: 0;
+}
+
+.file-upload-content {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.file-upload-icon {
+    font-size: 3rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+}
+
+.selected-file-display {
+    padding: 1rem;
+    background-color: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.alert-no-file {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+}
+
+/* Importación de presentaciones: superficie neutra y foco visible para teclado. */
+.sac-import-presentaciones .sac-import-upload {
+    position: relative;
+    border: 1px dashed var(--sac-border-strong);
+    border-radius: 8px;
+    background: var(--sac-surface-muted);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sac-import-presentaciones .sac-import-upload:hover,
+.sac-import-presentaciones .sac-import-upload--active {
+    border-color: var(--sac-action-primary);
+    background: var(--sac-action-view-bg);
+}
+
+.sac-import-presentaciones .sac-import-upload:focus-within {
+    border-color: var(--sac-action-primary);
+    box-shadow: 0 0 0 4px var(--sac-focus-ring);
+}
+
+.sac-import-presentaciones .sac-import-upload__label {
+    cursor: pointer;
+    color: var(--sac-text);
+}
+
+.sac-import-presentaciones .sac-import-upload__label i,
+.sac-import-presentaciones .sac-import-file > div > i {
+    color: var(--sac-text-muted);
+}
+
+.sac-import-presentaciones .sac-import-file {
+    background: var(--sac-surface-muted);
+    border-color: var(--sac-border);
+}
+
+.sac-import-presentaciones .sac-import-file__name {
+    min-width: 0;
+}

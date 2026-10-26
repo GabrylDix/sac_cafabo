@@ -1,0 +1,159 @@
+/* ============================================
+   Backgrounds, Gradients & Status Colors
+   ============================================ */
+.bg-dark-gradient {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%) !important;
+}
+.header-status-AP {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+.header-status-PR {
+    background: linear-gradient(135deg, #04a8e9 0%, #52c0f3 100%) !important;
+}
+
+.header-status-E {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+.header-status-PL {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.header-status-LP {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+
+.header-status-LT {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+}
+/*ESTADOS LIQUIDACIONES */
+.header-statusLiq-PE {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+.header-statusLiq-AP {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+.header-statusLiq-LO {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%) !important;
+}
+.header-statusLiq-PA {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+.header-statusLiq-EL {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+/*FIN: ESTADOS LIQUIDACIONES */
+/*INICIO: ESTADOS LOTES */
+.header-status-AP {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+.header-status-PA {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+.header-status-PE {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+}
+.header-status-EL {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+}
+/*FIN: ESTADOS LOTES */
+.header-gradient-primary{
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+.header-statusLotes{
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+}
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white;
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.bg-gradient-emerald {
+    background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+    color: white;
+}
+.bg-gradient-marino {
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+    color: #ffffff;
+}
+.bg-gradient-pizarra {
+    background: linear-gradient(135deg, #334155 0%, #0f172a 100%);
+    color: #ffffff;
+}
+
+/* Clases bootstrap */
+.bg-primary {
+    background-color: var(--primary) !important;
+    color: white;
+}
+.bg-success {
+    background-color: var(--success) !important;
+    color: white;
+}
+.bg-warning {
+    background-color: var(--warning) !important;
+    color: white;
+}
+.bg-danger {
+    background-color: var(--danger) !important;
+    color: white;
+}
+.bg-muted {
+    background-color: var(--bg-muted) !important;
+    color: white;
+}
+
+/* //buttons bootstrap */
+.btn-primary {
+    background-color: var(--primary) !important;
+    border-color: var(--primary) !important;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+    color: white;
+}
+.btn-success {
+    background-color: var(--success) !important;
+    border-color: var(--success) !important;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: var(--success-dark) !important;
+    border-color: var(--success-dark) !important;
+    color: white;
+}
+.btn-warning {
+    background-color: var(--warning) !important;
+    border-color: var(--warning) !important;
+    color: white;
+}
+.btn-warning:hover {
+    background-color: var(--warning-dark) !important;
+    border-color: var(--warning-dark) !important;
+    color: white;
+}
+.btn-danger {
+    background-color: var(--danger) !important;
+    border-color: var(--danger) !important;
+    color: white;
+}
+.btn-danger:hover {
+    background-color: var(--danger-dark) !important;
+    border-color: var(--danger-border) !important;
+    color: white;
+}
+
+/* 
+.text-success {
+    color: white !important;
+} */

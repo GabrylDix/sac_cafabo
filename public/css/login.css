@@ -1,0 +1,329 @@
+:root {
+    --primary-blue: #007ec1;       /* Azul principal AudiBaires */
+    --primary-hover: #00669e;      /* Azul oscuro para hover */
+    --celeste-accent: #00b4d8;     /* Celeste brillante */
+    --text-dark: #1e293b;          /* Pizarra oscuro para textos */
+    --text-muted: #64748b;         /* Gris para textos secundarios */
+    --bg-light: #f8fafc;           /* Fondo gris claro general */
+    --input-border: #e2e8f0;       /* Borde suave de los inputs */
+}
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Contenedor Principal (Replica de proporciones de la imagen) */
+.login-card-wrapper {
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+    width: 100%;
+    max-width: 1100px;
+    min-height: 680px;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+    COLUMNA IZQUIERDA (Branding, Logo e Imagen Administrativa de Fondo)
+    ========================================================================== */
+.brand-side {
+    width: 48%;
+    background-color: #0d1527;
+    position: relative;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* Imagen de fondo administrativa con overlay oscuro corporativo */
+.brand-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Imagen de oficina administrativa y planificación en alta resolución */
+    background-image: url('../images/login.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.18; /* Transparencia para que no compita con el texto */
+    z-index: 1;
+}
+
+/* Gradiente adicional para unificar colores con el logo */
+.brand-side::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #090e1a 40%, rgba(0, 126, 193, 0.45) 100%);
+    z-index: 2;
+}
+
+.brand-content-wrapper {
+    position: relative;
+    z-index: 5;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Logo Corporativo */
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ffffff;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0, 126, 193, 0.2);
+}
+
+.logo-text {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #ffffff;
+}
+
+/* Copys Principales */
+.brand-main-title {
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.brand-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    font-weight: 400;
+    max-width: 380px;
+}
+
+.brand-footer {
+    font-size: 0.78rem;
+    color: #475569;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+    COLUMNA DERECHA (Formulario de Login Puro)
+    ========================================================================== */
+.form-side {
+    width: 52%;
+    background-color: #ffffff;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-header {
+    margin-bottom: 35px;
+}
+
+.form-title {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Inputs y Etiquetas (Identicos a la imagen) */
+.form-label-custom {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.input-wrapper-custom {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.input-custom {
+    width: 100%;
+    background-color: #f8fafc;
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    padding: 12px 16px 12px 42px;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.input-custom::placeholder {
+    color: #94a3b8;
+}
+
+.input-custom:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 4px rgba(0, 126, 193, 0.1);
+}
+
+.input-custom-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 1.1rem;
+}
+
+.password-toggle-btn:hover {
+    color: var(--text-dark);
+}
+
+/* Checkbox y Enlace */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.custom-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.custom-checkbox:checked {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.checkbox-label-text {
+    font-size: 0.85rem;
+    color: #475569;
+    font-weight: 500;
+    user-select: none;
+    cursor: pointer;
+}
+
+.forgot-password-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.forgot-password-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Botón de Submit Principal (Celeste/Azul de tu logo) */
+.btn-submit-premium {
+    background-color: var(--primary-blue);
+    border: none;
+    border-radius: 8px;
+    padding: 13px;
+    width: 100%;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 126, 193, 0.2);
+}
+
+.btn-submit-premium:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 126, 193, 0.35);
+}
+
+.btn-submit-premium:active {
+    transform: translateY(0);
+}
+
+/* Soporte */
+.support-footer {
+    margin-top: 35px;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.support-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.support-link:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .login-card-wrapper {
+        flex-direction: column;
+        max-width: 500px;
+        min-height: auto;
+    }
+    .brand-side {
+        width: 100%;
+        padding: 40px;
+        min-height: 260px;
+    }
+    .form-side {
+        width: 100%;
+        padding: 40px;
+    }
+}

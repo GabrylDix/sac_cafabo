@@ -1,0 +1,258 @@
+/* ============================================
+   Cabecera Card Styles
+   ============================================ */
+.cabecera-item {
+    padding: 1rem;
+    background-color: #f9fafb;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary);
+}
+
+.cabecera-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.cabecera-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    word-break: break-word;
+}
+
+/* Encabezado reutilizable para títulos y descripciones de páginas SAC. */
+.sac-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--sac-surface);
+}
+
+.sac-page-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    min-width: 0;
+}
+
+.sac-page-heading__text {
+    min-width: 0;
+}
+
+.sac-page-title {
+    margin: 0 0 0.5rem;
+    color: var(--sac-text);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.sac-page-description {
+    margin: 0;
+    color: var(--sac-text-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+html[data-bs-theme="dark"] .sac-page-header {
+    background-color: var(--sac-surface);
+    border-color: var(--sac-border);
+}
+
+html[data-bs-theme="dark"] .sac-page-header .sac-page-title {
+    color: var(--sac-text);
+}
+
+html[data-bs-theme="dark"] .sac-page-header .sac-page-description {
+    color: var(--sac-text-muted);
+}
+
+@media (max-width: 575.98px) {
+    .sac-page-header {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .sac-page-header .sac-btn-primary {
+        width: 100%;
+    }
+
+    .sac-page-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
+/* ============================================
+   Currency Format
+   ============================================ */
+.currency {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+}
+
+.currency::before {
+    content: "$";
+    margin-right: 0.25rem;
+    opacity: 0.7;
+}
+
+.currency.negative {
+    color: var(--danger);
+}
+
+.currency.positive {
+    color: var(--success);
+}
+
+/* --- Estilos para Componente Detalle de Totales --- */
+
+.icon-box-top-success {
+    background-color: var(--success); /* Verde oscuro */
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    flex-shrink: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.sac-section-icon {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--sac-border);
+    border-radius: 4px;
+    background-color: var(--sac-surface-muted);
+    color: var(--sac-text-muted);
+}
+
+.sac-section-icon i {
+    font-size: 1rem;
+}
+
+.text-label {
+    color: var(--grey-dark); /* Gris oscuro para las etiquetas */
+    font-weight: 500;
+}
+
+.text-value {
+    color: var(--dark); /* Casi negro para los montos */
+    font-weight: 700;
+}
+
+.card-custom {
+    border-radius: 12px;
+    border: 1px solid var(--sac-border);
+    box-shadow: var(--sac-shadow-sm);
+}
+
+.divider-custom {
+    border-color: var(--sac-border);
+    opacity: 1;
+    margin: 1rem 0;
+}
+
+.total-title {
+    color: var(--sac-text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    font-weight: 800;
+}
+
+.total-amount {
+    color: var(--dark); /* Negro intenso */
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.icon-bottom-right {
+    color: var(--sac-text-subtle);
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.estado-asiento-card {
+    border: 1px solid var(--sac-border);
+    border-radius: 16px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.estado-asiento-card__icon {
+    line-height: 1;
+}
+
+.estado-asiento-card__title {
+    letter-spacing: 0.08em;
+}
+
+.estado-asiento-card__message {
+    font-size: 1rem;
+}
+
+.estado-asiento-card--info {
+    background-color: var(--sac-surface-muted);
+    border-color: var(--sac-border);
+    box-shadow: var(--sac-shadow-sm);
+}
+
+.estado-asiento-card--info .estado-asiento-card__icon,
+.estado-asiento-card--info .estado-asiento-card__title,
+.estado-asiento-card--info .estado-asiento-card__message {
+    color: var(--sac-text-muted);
+}
+
+.estado-asiento-card--info .estado-asiento-card__help {
+    color: var(--sac-text-subtle);
+}
+
+.estado-asiento-card--warning {
+    background-color: #fff7e8;
+    border-color: #ffe08a;
+    box-shadow: 0 4px 18px rgba(255, 193, 7, 0.12);
+}
+
+.estado-asiento-card--warning .estado-asiento-card__icon,
+.estado-asiento-card--warning .estado-asiento-card__title,
+.estado-asiento-card--warning .estado-asiento-card__message {
+    color: #b7791f;
+}
+
+.estado-asiento-card--warning .estado-asiento-card__help {
+    color: #8a6d3b;
+}
+
+.estado-asiento-card--success {
+    background-color: #ecfdf3;
+    border-color: #b7ebc6;
+    box-shadow: 0 4px 18px rgba(25, 135, 84, 0.12);
+}
+
+.estado-asiento-card--success .estado-asiento-card__icon,
+.estado-asiento-card--success .estado-asiento-card__title,
+.estado-asiento-card--success .estado-asiento-card__message {
+    color: #198754;
+}
+
+.estado-asiento-card--success .estado-asiento-card__help {
+    color: #4f8f73;
+}
